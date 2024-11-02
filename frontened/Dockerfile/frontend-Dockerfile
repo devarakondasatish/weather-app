@@ -1,0 +1,21 @@
+# Use a Node.js image (assuming a React/Angular frontend)
+FROM node:16
+
+# Set working directory
+WORKDIR /app
+
+# Copy frontend code
+COPY frontend/ .
+
+# Install dependencies
+RUN npm install
+
+# Build the app (for production)
+RUN npm run build
+
+# Expose port (e.g., 3000)
+EXPOSE 3000
+
+# Start the app
+CMD ["npm", "start"]
+
